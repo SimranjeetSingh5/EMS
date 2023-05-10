@@ -32,6 +32,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 
@@ -47,4 +48,6 @@ dependencies {
 
 
     implementation "com.makeramen:roundedimageview:2.3.0"
+//    implementation "com.github.PhilJay:MPAndroidChart:3.1.0"
+    implementation "com.airbnb.android:lottie:6.0.0"
 }
