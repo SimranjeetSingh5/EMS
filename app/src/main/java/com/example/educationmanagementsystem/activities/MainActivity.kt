@@ -1,4 +1,4 @@
-package com.example.educationmanagementsystem
+package com.example.educationmanagementsystem.activities
 
 import android.content.Context
 import android.content.Intent

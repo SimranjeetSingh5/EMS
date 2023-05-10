@@ -1,4 +1,4 @@
-package com.example.educationmanagementsystem
+package com.example.educationmanagementsystem.activities
 
 import android.R
 import android.app.DatePickerDialog
