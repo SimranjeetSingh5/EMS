@@ -141,7 +141,7 @@ class PerformanceFragment : Fragment() {
         dataSet.iconsOffset = MPPointF(0f, 40f)
         dataSet.selectionShift = 5f
         val colors: ArrayList<Int> = arrayListOf(
-            Color.MAGENTA,
+            Color.parseColor("#FF009688"),
             Color.LTGRAY,
             Color.RED,
             Color.GREEN,
