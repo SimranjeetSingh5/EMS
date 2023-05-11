@@ -1,6 +1,5 @@
 package com.example.educationmanagementsystem.activities
 
-import android.R
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +19,8 @@ class EMSActivity : AppCompatActivity() {
             val fragment: Fragment
             fragment = PerformanceFragment()
             binding.container.visibility = View.VISIBLE
-            loadFragment(fragment) }
+            loadFragment(fragment)
+        }
     }
 
     private fun loadFragment(fragment: PerformanceFragment) {

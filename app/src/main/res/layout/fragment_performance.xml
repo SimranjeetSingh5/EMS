@@ -10,6 +10,21 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         tools:context=".fragments.PerformanceFragment">
+        <TextView
+            android:id="@+id/totalScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7.8 CGPA"
+            android:padding="10dp"
+            android:background="@drawable/rounded_corner"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:fontFamily="@font/calistoga"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/pieChart"
+            />
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/pieChart"
             android:layout_width="300dp"
@@ -17,8 +32,126 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp" />
+            android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toTopOf="@id/ll1"
+            android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pieChart"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintTop_toBottomOf="@id/pieChart"
+            app:layout_constraintBottom_toTopOf="@id/ll2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:padding="4dp"
+                android:text="Mathematics I"
+                android:textAlignment="center"
+                android:fontFamily="@font/calistoga"
+                android:textColor="@color/black"
+                app:drawableLeftCompat="@drawable/circle"
+                app:drawableTint="@color/purple_200" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="Electrical Engineering Fundamentals"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/calistoga"
+                app:drawableLeftCompat="@drawable/circle"
+                app:drawableTint="#FFEB3B" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:padding="4dp"
+                android:text="Engineered Drawings"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/calistoga"
+                app:drawableLeftCompat="@drawable/circle"
+                app:drawableTint="@color/red" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pieChart"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/ll1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="English for professionals"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calistoga"
+            app:drawableLeftCompat="@drawable/circle"
+            app:drawableTint="#4CAF50" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="C language"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/calistoga"
+            app:drawableLeftCompat="@drawable/circle"
+            app:drawableTint="#2196F3" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/forward"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:cornerRadius="20dp"
+            app:iconSize="40dp"
+            app:icon="@drawable/forward"
+            app:tint="@color/black"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll2"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/backward"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:cornerRadius="20dp"
+            app:iconSize="40dp"
+            android:rotation="180"
+            app:icon="@drawable/forward"
+            app:tint="@color/black"
+            android:layout_marginStart="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll2"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

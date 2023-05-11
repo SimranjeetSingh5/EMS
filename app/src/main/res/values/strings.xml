@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Education Management System</string>
+    <string name="app_name">EMS</string>
     <string name="login_or_signup">Login or Signup</string>
     <string name="enter_credentails">Please enter your credentials</string>
     <string name="login">Login</string>
