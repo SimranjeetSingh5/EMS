@@ -1,6 +1,5 @@
 package com.example.educationmanagementsystem.fragments
 
-import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -8,7 +7,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.example.educationmanagementsystem.R
@@ -25,7 +23,7 @@ import java.math.RoundingMode
 import java.text.DecimalFormat
 
 class PerformanceFragment : Fragment() {
-    private var count: Int = 0
+    private var count: Int = 1
     private lateinit var binding: FragmentPerformanceBinding
     private lateinit var activityEmsactivityBinding: ActivityEmsactivityBinding
     private lateinit var scoresList: ArrayList<UserData>
@@ -43,7 +41,13 @@ class PerformanceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activityEmsactivityBinding.appName.text = "Student Performance"
-        activityEmsactivityBinding.back.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.ic_back, null))
+        activityEmsactivityBinding.back.setImageDrawable(
+            ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.ic_back,
+                null
+            )
+        )
         binding.pieChart.setUsePercentValues(true)
         binding.pieChart.description.isEnabled = false
         binding.pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
