@@ -24,10 +24,15 @@ class MainActivity : AppCompatActivity() {
             sharedPrefFile,
             Context.MODE_PRIVATE
         )
+        if (sharedPreferences.getBoolean("isLoggedIn",false)){
+            val intent = Intent(this, EMSActivity::class.java)
+            startActivity(intent)
+        }
         binding.loginBtn.setOnClickListener {
             val editor = sharedPreferences.edit()
             val sharedMobileValue = sharedPreferences.getString("mobile_key", "defaultmobile")
             val sharedPasswordValue = sharedPreferences.getString("password_key", "defaultkey")
+            editor.putBoolean("isLoggedIn",true)
             if (binding.phoneEditText.editText?.text.toString() != sharedMobileValue || binding.phoneEditText.editText?.text.toString()
                     .isEmpty()
             ) {
@@ -40,7 +45,8 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, EMSActivity::class.java)
                 startActivity(intent)
             }
-            editor.clear()
+            editor.apply()
+//            editor.clear()
         }
     }
 }

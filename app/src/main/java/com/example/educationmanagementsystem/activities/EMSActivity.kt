@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.educationmanagementsystem.databinding.ActivityEmsactivityBinding
+import com.example.educationmanagementsystem.fragments.AttendanceFragment
 import com.example.educationmanagementsystem.fragments.PerformanceFragment
 
 
@@ -21,9 +22,16 @@ class EMSActivity : AppCompatActivity() {
             binding.container.visibility = View.VISIBLE
             loadFragment(fragment)
         }
+        binding.attendance.setOnClickListener {
+
+            val attFragment: Fragment
+            attFragment = AttendanceFragment()
+            binding.container.visibility = View.VISIBLE
+            loadFragment(attFragment)
+        }
     }
 
-    private fun loadFragment(fragment: PerformanceFragment) {
+    private fun loadFragment(fragment: Fragment) {
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(binding.container.id, fragment)
         transaction.addToBackStack(null)
