@@ -14,31 +14,44 @@
         android:background="@color/red">
 
         <TextView
-            android:id="@+id/subject"
+            android:id="@+id/bookName"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_margin="20sp"
             android:fontFamily="sans-serif-medium"
-            android:text="Engineering mechanics"
+            android:text="Engineering mechanics by Ranji malhotra"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
-            android:id="@+id/totalAttendance"
+            android:id="@+id/author"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_margin="20sp"
             android:fontFamily="@font/calistoga"
-            android:text="Total Attendance: 47/60"
+            android:text="Author: Ranji Malhotra"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bookName" />
+
+        <TextView
+            android:id="@+id/pages"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/calistoga"
+            android:text="Total Pages: 228"
             android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subject" />
+            app:layout_constraintTop_toBottomOf="@id/author" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -46,26 +59,27 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" >
-            <TextView
-                android:id="@+id/presentTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20sp"
-                android:fontFamily="sans-serif"
-                android:text="Present"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/downloadTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:fontFamily="@font/calistoga"
+            android:text="Download"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
 
-            <ImageView
-                android:id="@+id/isPresent"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="5dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/ic_absent_white" />
+        <ImageView
+            android:id="@+id/downloadBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_corner"
+            android:src="@drawable/ic_download"/>
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

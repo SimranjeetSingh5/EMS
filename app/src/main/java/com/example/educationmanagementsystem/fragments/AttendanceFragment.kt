@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.educationmanagementsystem.R
 import com.example.educationmanagementsystem.adapter.CalendarAdapter
 import com.example.educationmanagementsystem.adapter.SubjectAdapter
 import com.example.educationmanagementsystem.databinding.ActivityEmsactivityBinding
@@ -37,14 +35,9 @@ class AttendanceFragment : Fragment(), CalendarAdapter.OnItemListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activityEmsactivityBinding.appName.text = "Attendance"
-        activityEmsactivityBinding.back.setImageDrawable(
-            ResourcesCompat.getDrawable(
-                resources,
-                R.drawable.ic_back,
-                null
-            )
-        )
+        binding.back.setOnClickListener {
+            activity?.onBackPressed()
+        }
         CalendarUtils.selectedDate = LocalDate.now()
         setWeekView()
 
@@ -66,6 +59,7 @@ class AttendanceFragment : Fragment(), CalendarAdapter.OnItemListener {
             nextWeekAction()
         }
         setEventAdapter()
+        setSubjectData(LocalDate.now()?.dayOfWeek?.value)
     }
 
 
@@ -87,9 +81,9 @@ class AttendanceFragment : Fragment(), CalendarAdapter.OnItemListener {
 
     private fun setEventAdapter() {
         subjectAdapter = SubjectAdapter(requireActivity().baseContext)
-        val layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.subjectRV.layoutManager = layoutManager
+
+        binding.subjectRV.setHasFixedSize(true);
+        binding.subjectRV.layoutManager = GridLayoutManager(activity, 1)
         binding.subjectRV.adapter = subjectAdapter
         setSubjectData(CalendarUtils.selectedDate?.dayOfWeek?.value)
     }

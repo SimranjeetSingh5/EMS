@@ -40,14 +40,9 @@ class PerformanceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activityEmsactivityBinding.appName.text = "Student Performance"
-        activityEmsactivityBinding.back.setImageDrawable(
-            ResourcesCompat.getDrawable(
-                resources,
-                R.drawable.ic_back,
-                null
-            )
-        )
+        binding.back.setOnClickListener {
+            activity?.onBackPressed()
+        }
         binding.pieChart.setUsePercentValues(true)
         binding.pieChart.description.isEnabled = false
         binding.pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
@@ -105,6 +100,31 @@ class PerformanceFragment : Fragment() {
                     PieEntry(3.3f),
                     PieEntry(39.0f)
                 )
+            ),UserData(
+                arrayListOf(
+                    PieEntry(99.4f),
+                    PieEntry(91.2f),
+                    PieEntry(93.6f),
+                    PieEntry(93.3f),
+                    PieEntry(99.0f)
+                )
+            ), UserData(
+                arrayListOf(
+                    PieEntry(7.4f),
+                    PieEntry(1.2f),
+                    PieEntry(1.6f),
+                    PieEntry(3.3f),
+                    PieEntry(9.0f)
+                )
+            ),
+            UserData(
+                arrayListOf(
+                    PieEntry(50.4f),
+                    PieEntry(49.2f),
+                    PieEntry(51.6f),
+                    PieEntry(53.3f),
+                    PieEntry(50.0f)
+                )
             )
         )
         for (scr in scoresList) {
@@ -114,13 +134,15 @@ class PerformanceFragment : Fragment() {
             }
             val df = DecimalFormat("#.##")
             df.roundingMode = RoundingMode.FLOOR
-            scr.totalCgpa = df.format(totalScore / 5).toFloat()
+            scr.totalCgpa = (df.format(totalScore / 50)).toFloat()
         }
         setPieChartData(scoresList[0])
         binding.forward.setOnClickListener {
             if (count >= 0 && count < scoresList.size) {
-                setPieChartData(scoresList[count])
                 count++
+                setPieChartData(scoresList[count])
+            }else{
+                return@setOnClickListener
             }
             Log.i("forward count", count.toString())
         }
@@ -128,6 +150,9 @@ class PerformanceFragment : Fragment() {
             if (count >= 0) {
                 count--
                 setPieChartData(scoresList[count])
+            }
+            else{
+                return@setOnClickListener
             }
             Log.i("forward count", count.toString())
         }
@@ -156,7 +181,7 @@ class PerformanceFragment : Fragment() {
         binding.pieChart.animateY(1800, Easing.EaseInOutQuad)
         binding.pieChart.highlightValues(null)
         binding.pieChart.invalidate()
-        binding.totalScore.text = scores.totalCgpa.toString() + "  CGPA" + " SEM-" + count
+        binding.totalScore.text = scores.totalCgpa.toString() + "  CGPA"
     }
 
 }

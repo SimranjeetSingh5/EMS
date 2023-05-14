@@ -26,6 +26,9 @@ class FeesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         feesAdapter = FeesAdapter()
+        binding.back.setOnClickListener {
+            activity?.onBackPressed()
+        }
         feesAdapter.feesList = arrayListOf(
             FeeData("1819/VSC2/1241", "VSCW/2012/12414", "2021-02-07", "pay.JBFjbfihiNO", 10000),
             FeeData("1819/VSC2/1241", "VSCW/2012/12413", "2021-12-20", "pay.KBNImoaofNO", 45619),
