@@ -23,7 +23,7 @@ import java.math.RoundingMode
 import java.text.DecimalFormat
 
 class PerformanceFragment : Fragment() {
-    private var count: Int = 1
+    private var count: Int = 0
     private lateinit var binding: FragmentPerformanceBinding
     private lateinit var activityEmsactivityBinding: ActivityEmsactivityBinding
     private lateinit var scoresList: ArrayList<UserData>
@@ -138,18 +138,25 @@ class PerformanceFragment : Fragment() {
         }
         setPieChartData(scoresList[0])
         binding.forward.setOnClickListener {
-            if (count >= 0 && count < scoresList.size) {
+            if (count in 0..6) {
                 count++
+                binding.backward.isEnabled = true
                 setPieChartData(scoresList[count])
-            }else{
+            }else if (count==7)
+                binding.forward.isEnabled = false
+            else{
                 return@setOnClickListener
             }
             Log.i("forward count", count.toString())
         }
         binding.backward.setOnClickListener {
-            if (count >= 0) {
+            if (count >0) {
                 count--
+                binding.forward.isEnabled = true
                 setPieChartData(scoresList[count])
+            }
+            else if (count==0){
+                binding.backward.isEnabled = false
             }
             else{
                 return@setOnClickListener
@@ -164,12 +171,14 @@ class PerformanceFragment : Fragment() {
         dataSet.sliceSpace = 3f
         dataSet.iconsOffset = MPPointF(0f, 40f)
         dataSet.selectionShift = 5f
+//        f #FFF1C9, #F7B7A3, #EA5F89, #9B3192, #57167E and #2B0B3F
+//         #3F3E3E, #FF7863, #FFE770 and #167266
         val colors: ArrayList<Int> = arrayListOf(
-            Color.parseColor("#FF009688"),
-            Color.LTGRAY,
-            Color.RED,
-            Color.GREEN,
-            Color.BLUE
+            Color.parseColor("#3F3E3E"),
+            Color.parseColor("#FF7863"),
+            Color.parseColor("#FFE770"),
+            Color.parseColor("#167266"),
+            Color.parseColor("#57167E")
         )
         dataSet.colors = colors
         val data = PieData(dataSet)

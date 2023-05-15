@@ -1,7 +1,9 @@
 package com.example.educationmanagementsystem.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -18,6 +20,12 @@ class EMSActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEmsactivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.logout.setOnClickListener {
+            Toast.makeText(this, "User logged out successfully!!", Toast.LENGTH_SHORT).show()
+            this.finish()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         binding.performance.setOnClickListener {
             val fragment: Fragment
             fragment = PerformanceFragment()

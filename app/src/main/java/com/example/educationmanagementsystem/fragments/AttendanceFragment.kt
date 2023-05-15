@@ -81,8 +81,6 @@ class AttendanceFragment : Fragment(), CalendarAdapter.OnItemListener {
 
     private fun setEventAdapter() {
         subjectAdapter = SubjectAdapter(requireActivity().baseContext)
-
-        binding.subjectRV.setHasFixedSize(true);
         binding.subjectRV.layoutManager = GridLayoutManager(activity, 1)
         binding.subjectRV.adapter = subjectAdapter
         setSubjectData(CalendarUtils.selectedDate?.dayOfWeek?.value)

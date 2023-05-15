@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="10dp"
     android:elevation="10dp"
     app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="10dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner">
@@ -17,6 +19,7 @@
             android:id="@+id/llStudent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:weightSum="2"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,10 +30,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20sp"
                 android:fontFamily="sans-serif-black"
-                android:letterSpacing=".2"
+                android:layout_weight="1"
                 android:text="Student UID:"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="sans-serif"
-                android:letterSpacing=".2"
+                android:layout_weight="1"
                 android:text="Student UID"
                 android:textColor="@color/black"
                 android:textSize="12sp"
@@ -51,6 +54,7 @@
 
         <LinearLayout
             android:id="@+id/llVoucher"
+            android:weightSum="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -63,7 +67,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:fontFamily="sans-serif-black"
-                android:letterSpacing=".2"
                 android:text="Voucher No:"
                 android:textColor="@color/black"
                 android:textSize="12sp"
@@ -77,19 +80,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:fontFamily="sans-serif"
-                android:letterSpacing=".2"
-                android:text="Student UID"
+                android:text="Voucher No:"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/vouTextView" />
-        </LinearLayout>
+   </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:weightSum="2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/llVoucher">
 
@@ -99,10 +102,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:fontFamily="sans-serif-black"
-                android:letterSpacing=".2"
+                android:layout_weight="1"
                 android:text="Bank Date:"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -113,8 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="sans-serif"
-                android:letterSpacing=".2"
+                android:layout_weight="1"
                 android:text="BankDate"
                 android:textColor="@color/black"
                 android:textSize="12sp"
@@ -126,10 +128,10 @@
             android:id="@+id/llBankRef"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:paddingBottom="20dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@id/llAmount"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:weightSum="2"
+            android:layout_marginHorizontal="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/llDate">
 
@@ -137,11 +139,10 @@
                 android:id="@+id/bankRefTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:fontFamily="sans-serif-black"
-                android:letterSpacing=".2"
-                android:text="Bank Reference No:"
+                android:text="Bank Ref No:"
                 android:textColor="@color/black"
+                android:layout_weight="1"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -153,8 +154,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:fontFamily="sans-serif"
-                android:letterSpacing=".2"
                 android:text="Student UID"
+                android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"

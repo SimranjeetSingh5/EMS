@@ -54,9 +54,6 @@ class LibraryFragment : Fragment() {
                         "Huebsch & Rothmayer", "https://research.nhm.org/pdfs/10592/10592.pdf", 557),
 
                 )
-        val layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
         binding.libraryRv.layoutManager = GridLayoutManager(activity, 1)
         binding.libraryRv.adapter = libraryAdapter
     }
