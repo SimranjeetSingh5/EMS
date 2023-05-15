@@ -21,16 +21,13 @@ import java.time.LocalDate
 
 class AttendanceFragment : Fragment(), CalendarAdapter.OnItemListener {
     private lateinit var binding: FragmentAttendanceBinding
-    private lateinit var activityEmsactivityBinding: ActivityEmsactivityBinding
     private lateinit var subjectAdapter: SubjectAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAttendanceBinding.inflate(layoutInflater, container, false)
-        activityEmsactivityBinding =
-            ActivityEmsactivityBinding.inflate(layoutInflater, container, false)
-        return binding.root
+       return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,7 +56,6 @@ class AttendanceFragment : Fragment(), CalendarAdapter.OnItemListener {
             nextWeekAction()
         }
         setEventAdapter()
-        setSubjectData(LocalDate.now()?.dayOfWeek?.value)
     }
 
 
@@ -75,7 +71,7 @@ class AttendanceFragment : Fragment(), CalendarAdapter.OnItemListener {
 
     override fun onItemClick(position: Int, date: LocalDate?) {
         CalendarUtils.selectedDate = date
-        setSubjectData(date?.dayOfWeek?.value)
+        setSubjectData(CalendarUtils.selectedDate?.dayOfWeek?.value)
         setWeekView()
     }
 

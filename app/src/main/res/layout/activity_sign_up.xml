@@ -190,6 +190,7 @@
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="40dp"
                 android:maxLines="1"
+                android:background="@drawable/rounded_corner"
                 android:text="Gender"
                 android:textSize="16sp"
                 android:textColor="#88000000"

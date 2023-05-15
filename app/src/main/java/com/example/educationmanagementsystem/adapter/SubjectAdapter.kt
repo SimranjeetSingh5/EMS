@@ -22,15 +22,21 @@ class SubjectAdapter(private val ctx: Context) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val subjectItem = subjectList[position]
-        val subjectHolder:MyViewHolder = holder as MyViewHolder
+        val subjectHolder: MyViewHolder = holder
         subjectHolder.binding.subject.text = subjectItem.name
         subjectHolder.binding.isPresent.let {
             if (subjectItem.presentToday)
-                it.setImageDrawable(ContextCompat.getDrawable(ctx, R.drawable.ic_round_check_circle_24))
+                it.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        ctx,
+                        R.drawable.ic_round_check_circle_24
+                    )
+                )
             else
                 it.setImageDrawable(ContextCompat.getDrawable(ctx, R.drawable.ic_absent))
         }
-        subjectHolder.binding.totalAttendance.text = "Total Attendance:"+subjectItem.totalAtten +"/60"
+        subjectHolder.binding.totalAttendance.text =
+            "Total Attendance:" + subjectItem.totalAtten + "/60"
 
     }
 
