@@ -1,6 +1,8 @@
 package com.example.educationmanagementsystem.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -16,15 +18,22 @@ import com.example.educationmanagementsystem.fragments.PerformanceFragment
 
 class EMSActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEmsactivityBinding
+    private val sharedPrefFile = "kotlinsharedpreference"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEmsactivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val sharedPreferences: SharedPreferences.Editor = this.getSharedPreferences(
+            sharedPrefFile,
+            Context.MODE_PRIVATE
+        ).edit()
         binding.logout.setOnClickListener {
             Toast.makeText(this, "User logged out successfully!!", Toast.LENGTH_SHORT).show()
-            this.finish()
             val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            sharedPreferences.putBoolean("isLoggedIn", false)
+            sharedPreferences.apply()
+            sharedPreferences.commit()
+            this.startActivity(intent)
         }
         binding.performance.setOnClickListener {
             val fragment: Fragment
