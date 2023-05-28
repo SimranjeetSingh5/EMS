@@ -10,10 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.educationmanagementsystem.databinding.ActivityEmsactivityBinding
-import com.example.educationmanagementsystem.fragments.AttendanceFragment
-import com.example.educationmanagementsystem.fragments.FeesFragment
-import com.example.educationmanagementsystem.fragments.LibraryFragment
-import com.example.educationmanagementsystem.fragments.PerformanceFragment
+import com.example.educationmanagementsystem.fragments.*
 
 
 class EMSActivity : AppCompatActivity() {
@@ -27,6 +24,16 @@ class EMSActivity : AppCompatActivity() {
             sharedPrefFile,
             Context.MODE_PRIVATE
         ).edit()
+        binding.student.setOnClickListener {
+            binding.stuOrFaculty.visibility =View.GONE
+            binding.emsImage.visibility  =View.VISIBLE
+            binding.studentSection.visibility = View.VISIBLE
+            binding.appName.visibility = View.VISIBLE
+        }
+        binding.faculty.setOnClickListener {
+            val intent = Intent(this, FacultyActivity::class.java)
+            startActivity(intent)
+        }
         binding.logout.setOnClickListener {
             Toast.makeText(this, "User logged out successfully!!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
@@ -69,5 +76,16 @@ class EMSActivity : AppCompatActivity() {
         transaction.replace(binding.container.id, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    override fun onBackPressed() {
+        if (binding.appName.visibility == View.VISIBLE){
+            binding.stuOrFaculty.visibility =View.VISIBLE
+            binding.emsImage.visibility  =View.GONE
+            binding.studentSection.visibility = View.GONE
+            binding.appName.visibility = View.GONE
+        }else{
+            super.onBackPressed()
+        }
     }
 }

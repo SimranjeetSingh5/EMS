@@ -1,20 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/wholeView" xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".activities.EMSActivity">
+        <RelativeLayout
+            android:id="@+id/stuOrFaculty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/faculty"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_margin="40dp"
+                android:background="@drawable/rounded_corner"
+                android:padding="20dp"
+                android:src="@drawable/teacher"
+                app:riv_corner_radius="@dimen/cardview_default_radius" />
+
+            <TextView
+                android:id="@+id/facultyTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:text="@string/faculty"
+                android:fontFamily="@font/alata"
+                android:textColor="#F44336"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_alignEnd="@id/faculty"
+                android:layout_alignParentTop="@id/faculty"
+                android:layout_alignStart="@id/faculty"
+                android:layout_marginVertical="120dp"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/student"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="40dp"
+                android:layout_toEndOf="@id/faculty"
+                android:background="@drawable/rounded_corner"
+                android:padding="20dp"
+                android:src="@drawable/student" />
+
+
+            <TextView
+                android:id="@+id/studentTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:text="@string/student"
+                android:fontFamily="@font/alata"
+                android:textColor="#F44336"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_alignEnd="@id/student"
+                android:layout_alignParentTop="@id/student"
+                android:layout_alignStart="@id/student"
+                android:layout_marginVertical="120dp"/>
+        </RelativeLayout>
         <TextView
             android:id="@+id/appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:visibility="gone"
             android:layout_marginStart="30dp"
             android:text="@string/studentTV"
             android:fontFamily="@font/alata"
@@ -29,15 +94,18 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="30dp"
+
             android:src="@drawable/ic_logout"
             android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/todo" />
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/emsImage"
             android:layout_width="match_parent"
             android:layout_height="420dp"
-            app:layout_constraintBottom_toTopOf="@id/attendance"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/studentSection"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,6 +113,13 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/emsedu" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/studentSection"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emsImage">
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/attendance"
             android:layout_width="120dp"
@@ -55,7 +130,7 @@
             android:src="@drawable/attandance"
             app:layout_constraintEnd_toStartOf="@id/library"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emsImage"
+            app:layout_constraintTop_toTopOf="parent"
             app:riv_corner_radius="@dimen/cardview_default_radius" />
 
         <com.makeramen.roundedimageview.RoundedImageView
@@ -68,7 +143,7 @@
             android:src="@drawable/library"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/attendance"
-            app:layout_constraintTop_toBottomOf="@id/emsImage" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/fees"
@@ -93,6 +168,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/fees"
             app:layout_constraintTop_toBottomOf="@id/attendance" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="0dp"

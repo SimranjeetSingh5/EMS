@@ -11,4 +11,7 @@
     <string name="back">Back</string>
     <string name="forward">Forward</string>
     <string name="studentTV">Students \n Mishra Anand Sudhir 1819/VSCE/11649</string>
+    <string name="student">Student</string>
+    <string name="faculty">Faculty</string>
+    <string name="todo">TODO</string>
 </resources>
